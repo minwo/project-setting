@@ -1,0 +1,19 @@
+.swiper-comn .swiper-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.swiper-comn .swiper-wrap .item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  width: 100%;
+}
+
+.swiper-comn .swiper-wrap .item a {
+  display: block;
+  height: 300px;
+}

@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+.tab-module .tab-ctr{display:flex}
+.tab-module .tab-ctr .tab{flex:1}
+.tab-module .tab-ctr .btn{display:block;height:40px;text-align:center;background:linear-gradient(310deg, rgb(97, 32, 162), rgb(204, 0, 102))}
+.tab-module .tab-layer{display:none}
+.tab-module .tab-layer.on{display:block}

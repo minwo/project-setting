@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--[if IE 7]><html lang="ko" class="ie7"><![endif]-->
+<!--[if IE 8]><html lang="ko" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="ko" class="ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="eux_prototype" lang="ko">
+	<!--<![endif]-->
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta charset="utf-8">
+		<title>로컬 전용 코딩리스트 - 고정 타이틀 값 넣기</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta property="og:title" content="">
+		<meta property="og:url" content="">
+		<meta property="og:image" content="">
+		<meta property="og:description" content="">
+		<link href="./assets/css/font.css" type="text/css" rel="stylesheet" />
+		<link href="./assets/css/reset.css" type="text/css" rel="stylesheet" />
+        <style>
+            @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+            html.eux_prototype{height:100%;height:5000px}
+            .eux_prototype body{font-family:'Noto Sans KR','맑은 고딕','Malgun Gothic',sans-serif;height:100%}
+            .eux_prototype .layout_float #wrap{width:100%;height:100%}
+            .eux_prototype .layout_float #container{width:100%;min-height:100%;background:#fff}
+            .eux_prototype .layout_float #snb{float:left;width:250px;background:red}
+            .eux_prototype .layout_float #content{float:right;width:70%;background:brown}
+            .eux_prototype .layout_float #footer{width:100%}
+            .eux_prototype .layout_grid #container{background:#00f}
+            .eux_prototype .layout_flex #container{background:red}
+            .eux_prototype .cl_ctr_area{height:150px}
+            .eux_prototype .cl_ctr_area > div{width:100%;background:#fff;border-bottom:2px solid #000;transition:all .2s ease-in-out}
+            .eux_prototype .cl_ctr_area .fixed{position:fixed;top:0;left:0;z-index:100}
+            .eux_prototype .cl_info_area{position:relative;width:100%}
+            .eux_prototype .cl_info_area .project_tit{font-size:32px;padding:20px;border-bottom:2px solid #000}
+            .eux_prototype .cl_link_area{padding:0;background:#fff}
+            .eux_prototype .cl_link_area .cl_link_area,.eux_prototype .cl_link_area .link_category,.eux_prototype .cl_link_area .link_other,.eux_prototype .cl_link_area .link_page_count_area{padding:5px}
+            .eux_prototype .cl_link_area .link_other{text-align:left}
+            .eux_prototype .cl_link_area .link_other>a{display:inline-block;margin-right:15px;padding:10px 20px;color:#fff;border:1px solid #000;background-color:#555}
+            .eux_prototype .cl_link_area .link_other>a:hover{box-shadow:5px 5px 13px #999}
+            .eux_prototype .cl_link_area .link_category{width:100%;text-align:left}
+            .eux_prototype .cl_link_area .link_category>a{display:inline-block;margin-right:15px;padding:6px 10px 4px;border:1px solid #000}
+            .eux_prototype .cl_link_area .link_category>a:hover{background:#ddd}
+            .eux_prototype .cl_link_area .page_count_area{padding:10px;border-top:2px solid #000}
+            .eux_prototype .cl_link_area .page_count_area span{font-weight:700;display:inline-blcok;margin-right:20px}
+            .eux_prototype .cl_link_area .page_count_area span span{font-weight:400;margin-right:0;margin-left:5px}
+            .eux_prototype .cl_list_area{position:relative;width:100%}
+            .eux_prototype .cl_list_area .cl_list_detail{width:100%}
+            .eux_prototype .cl_list_area .cl_category_tit{font-weight:700;padding:20px 10px 10px}
+            .eux_prototype .cl_list_area .page_count_category{display:inline-block}
+            .eux_prototype .cl_list_area .cl_table{width:100%}
+            .eux_prototype .cl_list_area .cl_table thead th{height:37px;text-align:center;border:1px solid #e2e2e2;background:#cbf2f5}
+            .eux_prototype .cl_list_area .cl_table tbody td{padding:5px 5px;text-align:center;border:1px solid #e2e2e2}
+            .eux_prototype .cl_list_area .cl_table tbody tr:nth-child(even){background:#f1f9f9}
+            .eux_prototype .cl_list_area .cl_table tbody td.p_num{width:50px;table-layout:fixed}
+            .eux_prototype .cl_list_area .cl_table tbody td.p_depth01,.eux_prototype .cl_list_area .cl_table tbody td.p_depth02,.eux_prototype .cl_list_area .cl_table tbody td.p_depth03,.eux_prototype .cl_list_area .cl_table tbody td.p_depth04,.eux_prototype .cl_list_area .cl_table tbody td.p_depth05{width:220px;table-layout:fixed;text-align:left}
+            .eux_prototype .cl_list_area .cl_table tbody td.p_folder{width:120px;table-layout:fixed;text-align:left}
+            .eux_prototype .cl_list_area .cl_table tbody td.p_filename{width:200px;table-layout:fixed;text-align:left}
+            .eux_prototype .cl_list_area .cl_table tbody td.p_type{width:60px;padding:0;table-layout:fixed}
+            .eux_prototype .cl_list_area .cl_table tbody td.p_time{width:80px;padding:0;table-layout:fixed}
+            .eux_prototype .cl_list_area .cl_table tbody td.p_modify{width:70px;padding:0;table-layout:fixed}
+            .eux_prototype .cl_list_area .cl_table tbody td.p_status{width:50px;table-layout:fixed}
+            .eux_prototype .cl_list_area .cl_table tbody td.p_etc{text-align:left;color:red}
+            .eux_prototype .cl_list_area .cl_table .p_link{text-decoration:underline}
+            .eux_prototype .cl_list_area .cl_table .p_link_dev,.eux_prototype .cl_list_area .cl_table .p_link_open{color:#00f}
+            .eux_prototype .cl_list_area .cl_table .p_time_s{padding:6px 0 2px;border-bottom:1px solid #e2e2e2}
+            .eux_prototype .cl_list_area .cl_table .p_time_e{padding:6px 0 2px}
+        </style>
+	</head>
+	<body>
+		<!--[if lte IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
+		<div id="wrap">
+			<div id="content" style="padding:0;">
+				<div class="cl_info_area">
+					<h1 class="project_tit">로컬용 코딩리스트 템플릿</h1>
+				</div>
+				<div class="cl_ctr_area cl_link_area">
+                    <div>
+                        <div class="link_other">
+                            <a href="#" target="_blank">외부링크1</a>
+                            <a href="#" target="_blank">외부링크2</a>
+                            <a href="#" target="_blank">외부링크3</a>
+                        </div>
+                        <div class="link_category">
+                            <a href="#">메인</a>
+                            <a href="#">프로그램</a>
+                            <a href="#">프로토타입</a>
+                            <a href="#">기타</a>
+                        </div>
+                        <div class="page_count_area">
+                            <span class="pc_all">전체
+                                <span>500</span>
+                            </span>
+                            <span class="pc_ing">진행중
+                                <span>200</span>
+                            </span>
+                            <span class="pc_modify">수정중
+                                <span>100</span>
+                            </span>
+                            <span class="pc_end">완료
+                                <span>200</span>
+                            </span>
+                            <span class="pc_percent">진행률
+                                <span>50</span>%</span>
+                        </div>
+                    </div>
+				</div>
+				<div class="cl_list_area">
+					<div class="cl_list_detail">
+						<h2 class="cl_category_tit">메인
+							<span class="page_count_category"></span>
+						</h2>
+						<table class="cl_table">
+							<thead>
+								<tr>
+									<th>no</th>
+									<th>depth 1</th>
+									<th>depth 2</th>
+									<th>depth 3</th>
+									<th>depth 4</th>
+									<th>depth 5</th>
+									<th>folder</th>
+									<th>filename</th>
+									<th>진행상태</th>
+									<th>비고</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="p_num">1</td>
+									<td class="p_depth01">메인</td>
+									<td class="p_depth02">메인</td>
+									<td class="p_depth03"></td>
+									<td class="p_depth04"></td>
+									<td class="p_depth05"></td>
+									<td class="p_folder">/</td>
+									<td class="p_filename">
+										<a class="p_link" href="http://localhost:8888/index.html" target="_blank">index.html</a>
+									</td>
+									<td class="p_status">진행중</td>
+									<td class="p_etc"></td>
+								</tr>
+								<tr>
+									<td class="p_num">1</td>
+									<td class="p_depth01">프리세일</td>
+									<td class="p_depth02">프리세일</td>
+									<td class="p_depth03"></td>
+									<td class="p_depth04"></td>
+									<td class="p_depth05"></td>
+									<td class="p_folder">/</td>
+									<td class="p_filename">
+										<a class="p_link" href="http://localhost:8888/token_sale.html" target="_blank">token_sale.html</a>
+									</td>
+									<td class="p_status">완료</td>
+									<td class="p_etc">스크립트 작업 필요</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="cl_list_area">
+					<div class="cl_list_detail">
+						<h2 class="cl_category_tit">마이페이지
+							<span class="page_count_category"></span>
+						</h2>
+						<table class="cl_table">
+							<thead>
+								<tr>
+									<th>no</th>
+									<th>depth 1</th>
+									<th>depth 2</th>
+									<th>depth 3</th>
+									<th>depth 4</th>
+									<th>depth 5</th>
+									<th>folder</th>
+									<th>filename</th>
+									<th>진행상태</th>
+									<th>비고</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="p_num">1</td>
+									<td class="p_depth01">My Page</td>
+									<td class="p_depth02">홈</td>
+									<td class="p_depth03"></td>
+									<td class="p_depth04"></td>
+									<td class="p_depth05"></td>
+									<td class="p_folder">/mypage/</td>
+									<td class="p_filename"><a class="p_link" href="http://localhost:8888/mypage/mypage01.html" target="_blank">mypage01.html</a>
+									</td>
+									<td class="p_status">완료</td>
+									<td class="p_etc"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="dimm">
+			<img src="/images/common/blank_size_100.png" alt="" />
+		</div>
+		<script src="./assets/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./assets/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./assets/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./assets/js/TweenMax.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function()
+			{
+				var endCount = $('.p_status:contains(완료)').length;
+				var ingCount = $('.p_status:contains(진행중)').length;
+				var modifyCount = $('.p_status:contains(수정중)').length;
+				var allCount = endCount + ingCount + modifyCount;
+				var eCount = endCount / allCount * 100;
+				//- console.log(endCount);
+				//- console.log(ingCount);
+				//- console.log(modifyCount);
+				//- console.log(allCount);
+				$('.pc_ing>span').text(ingCount);
+				$('.pc_modify>span').text(modifyCount);
+				$('.pc_end>span').text(endCount);
+				$('.pc_all>span').text(allCount);
+				$('.pc_percent>span').text(eCount.toFixed(0));
+			});
+
+            const getElIndex = (element, range) => {
+                if (!!range) return [].indexOf.call(element, range);
+                return [].indexOf.call(element.parentNode.children, element);
+            }
+
+            document.addEventListener('DOMContentLoaded',function(){
+                const titEl = document.querySelector('.project_tit');
+                const ctrEl = document.querySelector('.cl_ctr_area');
+                const sectionEl = document.querySelectorAll('.cl_list_area');
+                let linkEl = document.querySelectorAll('.link_category a');
+                
+                const headHeight = titEl.offsetHeight;
+                const ctrHeight = ctrEl.offsetHeight;
+                let elTop = [];
+                
+                [].forEach.call(sectionEl, (e, obj) => {
+                    elTop[obj] = window.pageYOffset + e.getBoundingClientRect().top;
+                });
+                
+                [].forEach.call(linkEl, (e, obj) => {
+                    const body = document.getElementsByTagName('body')[0];
+                    e.addEventListener('click', function(e){
+                        e.preventDefault();
+                        idx = getElIndex(linkEl,e);
+                        
+                        window.scroll({
+                            behavior: 'smooth',
+                            top: elTop[obj] - ctrHeight
+                        });
+                       
+                    });
+                });
+
+                document.addEventListener("scroll", function(){
+                    var _scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    if(_scrollTop >= headHeight){
+                        ctrEl.querySelector('div').classList.add('fixed');
+                    } else {
+                        ctrEl.querySelector('div').classList.remove('fixed');
+                    }
+                });
+                
+            });
+		</script>
+	</body>
+</html>
