@@ -1,0 +1,190 @@
+ @charset "UTF-8";
+
+@use 'sass:math'; 
+
+// 텍스트 말줄임
+@mixin ell($line:1) {
+	overflow:hidden;
+	text-overflow:ellipsis;
+	@if $line > 1 {
+		display:-webkit-box;
+		-webkit-line-clamp:$line;
+		-webkit-box-orient:vertical;
+	}@else{
+		white-space:nowrap;
+	}
+}
+
+// icon
+@mixin ic($ws, $hs ,$path:null){
+    display:inline-block;
+    width:$ws;
+    height:$hs;
+    @if not($path == null or $path == ''){
+        $icon-path : $url-ico + $path;
+        background-image:url($icon-path);
+    }
+    background-size:100% 100%;
+}
+
+@mixin icType(){
+    @each $key, $value in $icon-size {
+        &.#{$key}{
+            width: map-get($value, "width");
+            height: map-get($value, "height");
+        }
+    }
+
+    @each $key, $file in map-get($icon-size, "file") {
+        &.#{$key} {
+            background-image: url($url-ico+$file);
+        }
+    }
+}
+
+// button
+@mixin buttonType( $border-color, $background-color, $font-color ){
+	border-color:$border-color;
+	background-color:$background-color;
+	color:$font-color;
+}
+
+@mixin btnDrt($direction:null){
+    @each $key, $value in $btn-size{
+        @if ($direction == 'col'){
+            &.#{$key}{
+                flex-basis: map-get($value, "size");
+                font-size: map-get($value, "font-size");
+            }
+        } @else {
+            &.#{$key}{
+                height: map-get($value, "size");
+                font-size: map-get($value, "font-size");
+            }
+        }
+    }
+}
+
+// checkbook && radio
+@mixin form(
+	$type
+	// ,
+	// $before-shadow: if($type == checkbox, 0, 3px),
+	// $border-radius: if($type == checkbox, 3px, 50%)
+) {
+	// size
+	$checkradio-size:              26px !default;
+	// checked border color
+	$checkradio-border-primary:  #0d6efd  !default;
+	// shadow default color
+	$checkradio-shadow-default:  #fff  !default;
+	// checked shadow color
+	$checkradio-shadow-primary:    $checkradio-border-primary  !default;
+	// disabled shadow color
+	$checkradio-shadow-disabled: #dee2e6  !default;
+
+	display:inline-block;
+	vertical-align:top;
+	color:$navy-030;
+	font-weight:500;
+
+	input {
+		position:absolute;
+		width:1px;
+		height:1px;
+		padding:0;
+		margin:-1px;
+		overflow:hidden;
+		clip:rect(0,0,0,0);
+		border:0;
+
+		&:checked ~ span{
+			color:$navy-070;
+		}
+		
+		@if($type == "radio"){
+			&:checked ~ span{
+				&:before{
+					background-color:$green-060;
+				}
+			}
+		}
+
+		&:disabled + span {
+			color:#adb5bd;
+			&:before {
+				border-color:#adb5bd;
+				box-shadow:inset 0 0 0 $checkradio-size $checkradio-shadow-disabled;
+			}
+		}
+	}
+
+	span {
+		position:relative;
+		display:inline-flex;
+		align-items:center;
+		vertical-align:top;
+
+		@if($type == "radio"){
+			&{
+				&:after{
+					display:inline-block;
+					position:absolute;
+					top:8px;
+					left:8px;
+					width:10px;
+					height:10px;
+					content:"";
+					border-radius:$border-radius-circle;
+					background-color:$gray-000;
+				}
+	
+				&:before{
+					background-color:$navy-020;
+					border-radius:$border-radius-circle;
+				}
+			}
+		}
+
+		&:before {
+			content:'';
+			width:$checkradio-size;
+			height:$checkradio-size;
+			margin-right:5px;
+			
+		}
+		
+	}
+
+	&.no-label {
+		span {
+			font-size:0;
+			line-height:0;
+			&:before {
+				margin: 0;
+			}
+		}
+	}
+}
+
+@mixin font($size:null, $weight:null, $color:null, $lheight:null){
+	font-size:rem($size);
+	font-weight:$weight;
+	color:$color;
+	line-height:rem($lheight);
+}
+
+@mixin cardUi($pd:null, $radius:null, $shadow:null){
+	padding:$pd;
+	border:1px solid #E8E8E8;
+	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+	border-radius:$radius;
+}
+
+@function rem($target) {
+	$rem: ();
+	@each $value in $target {
+		$rem: append($rem, $value / $browser-context) + rem;
+	}
+	@return $rem;
+}
