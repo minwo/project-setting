@@ -209,7 +209,7 @@ $bg-color2:		#7764CA !default;
 			}
 			td{
 				padding:13px 10px 13px;
-				@include font(15,400,#555,26);
+				@include font(12,400,#555,26);
 				&:not(:first-child){
 					border-left:1px solid #EEEEEE;
 				}
@@ -227,8 +227,7 @@ $bg-color2:		#7764CA !default;
 		}
 		tr{
 			th,td{
-				&:nth-child(1),
-				&:nth-child(2)
+				&:nth-child(1)
 				{
 					text-align: center;
 				}
@@ -239,7 +238,7 @@ $bg-color2:		#7764CA !default;
 		text-align:center !important;
 	}
 	a{
-		color:#7764ca;
+		@include font(12,400,#7764ca,26);
 	}
 }
 .title02{
