@@ -1,5 +1,5 @@
 /node_modules
-/dist
+/www
 .DS_Store
 package-lock.json
 _bundle.scss
