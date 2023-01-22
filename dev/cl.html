@@ -41,7 +41,7 @@
 								<span class="txt">Total :</span>
 								<span class="current">0</span>
 								<span class="bullet">/</span>
-								<span class="total-count">10</span>
+								<span class="total-count"></span>
 							</div>
 							<div class="progress">
 								<span class="txt">진척률 : </span>
@@ -66,7 +66,7 @@
 					<div class="status">
 						<span class="mark">
 							<i class="ico mark-on"></i>
-							작업완료
+							완료
 						</span>
 						<span class="mark">
 							<i class="ico mark-off"></i>
@@ -79,7 +79,7 @@
 					<table>
 						<caption></caption>
 						<colgroup>
-							<col style="width:50px">
+							<col style="width:80px">
 							<col span="5">
 							<col style="width:80px">
 							<col>
@@ -104,7 +104,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td></td>
+								<td>작업중</td>
 								<td>자동차</td>
 								<td>상품특징상품특징상품특징상품특징 상품특징</td>
 								<td>보험료</td>
@@ -119,7 +119,82 @@
 								<td></td>
 							</tr>
 							<tr>
+								<td>작업중</td>
+								<td>자동차</td>
+								<td>상품특징상품특징상품특징상품특징 상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
 								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td><input type="text" name="calendar"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>작업중</td>
+								<td>자동차</td>
+								<td>상품특징상품특징상품특징상품특징 상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td><input type="text" name="calendar"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>작업중</td>
+								<td>자동차</td>
+								<td>상품특징상품특징상품특징상품특징 상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td><input type="text" name="calendar"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>작업중</td>
+								<td>자동차</td>
+								<td>상품특징상품특징상품특징상품특징 상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td><input type="text" name="calendar"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>작업중</td>
+								<td>자동차</td>
+								<td>상품특징상품특징상품특징상품특징 상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td><input type="text" name="calendar"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>완료</td>
 								<td>자동차</td>
 								<td>상품특징</td>
 								<td>보험료</td>
@@ -146,17 +221,34 @@
 		<!-- //footer -->
 	</div>
 	<script>
-		const elem = document.querySelectorAll('input[name="calendar"]');
+		// const elem = document.querySelectorAll('input[name="calendar"]');
 		
-		elem.forEach(function(obj,idx){
-			console.log(obj,idx);
-			const datepicker = new Datepicker(obj, {
-				autohide: true,
-				format: 'yy-mm-dd',
-			});
-		})
-	
-		
+		// elem.forEach(function(obj,idx){
+		// 	console.log(obj,idx);
+		// 	const datepicker = new Datepicker(obj, {
+		// 		autohide: true,
+		// 		format: 'yy-mm-dd',
+		// 	});
+		// })
+		const progressRate = () => {
+			const listItem = document.querySelector('.tb-wrap').querySelectorAll('tbody tr td:first-child');
+			const itemLgt = listItem.length;
+
+			let test = [];
+			let ttt;
+			[].forEach.call(listItem, (obj,idx) => {
+				test[idx] = obj.textContent;
+				ttt = test.filter(value => value === '작업중').length;
+				console.log(ttt);
+			})
+
+			document.querySelector('.current').innerHTML = ttt;
+			document.querySelector('.total-count').innerHTML = itemLgt;
+			document.querySelector('.percent').innerHTML = Math.round(ttt / itemLgt * 100) + '%';
+			document.querySelector('.gauge em').style.width =  Math.round(ttt / itemLgt * 100) + '%';
+
+		}
+		progressRate();
 	</script>
 </body>
 </html>

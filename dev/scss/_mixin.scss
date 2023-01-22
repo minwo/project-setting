@@ -184,7 +184,8 @@
 @function rem($target) {
 	$rem: ();
 	@each $value in $target {
-		$rem: append($rem, $value / $browser-context) + rem;
+		$vaule:math.div($value , $browser-context);
+		$rem: append($rem, $vaule) + rem;
 	}
 	@return $rem;
 }
