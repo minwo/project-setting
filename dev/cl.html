@@ -234,18 +234,25 @@
 			const listItem = document.querySelector('.tb-wrap').querySelectorAll('tbody tr td:first-child');
 			const itemLgt = listItem.length;
 
-			let test = [];
-			let ttt;
+			let workValue = [];
+			let workTotal;
 			[].forEach.call(listItem, (obj,idx) => {
-				test[idx] = obj.textContent;
-				ttt = test.filter(value => value === '작업중').length;
-				console.log(ttt);
-			})
+				workValue[idx] = obj.textContent;
+				workTotal = workValue.filter(value => value === '완료').length;
+				
+				if(workValue[idx].indexOf('작업중')){
+					console.log(obj);
+					obj.innerHTML = '<i class="ico mark-on"></i>';
+				} else {
+					obj.innerHTML = '<i class="ico mark-off"></i>';
+					console.log(11);
+				}
+			});
 
-			document.querySelector('.current').innerHTML = ttt;
+			document.querySelector('.current').innerHTML = workTotal;
 			document.querySelector('.total-count').innerHTML = itemLgt;
-			document.querySelector('.percent').innerHTML = Math.round(ttt / itemLgt * 100) + '%';
-			document.querySelector('.gauge em').style.width =  Math.round(ttt / itemLgt * 100) + '%';
+			document.querySelector('.percent').innerHTML = Math.round(workTotal / itemLgt * 100) + '%';
+			document.querySelector('.gauge em').style.width =  Math.round(workTotal / itemLgt * 100) + '%';
 
 		}
 		progressRate();

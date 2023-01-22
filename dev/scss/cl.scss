@@ -162,18 +162,19 @@ $bg-color2:		#7764CA !default;
 					margin-left:21px;
 				}
 			}
-			.ico{
-				width:24px;
-				height:24px;
-				margin-right:10px;
-			}
-			.mark-on{
-				background: url(#{$url-cl}ico_mark_on.svg) no-repeat;
-			}
-			.mark-off{
-				background: url(#{$url-cl}ico_mark_off.svg) no-repeat;
-			}
 		}
+	}
+
+	.ico{
+		width:24px;
+		height:24px;
+		margin-right:10px;
+	}
+	.mark-on{
+		background: url(#{$url-cl}ico_mark_on.svg) no-repeat;
+	}
+	.mark-off{
+		background: url(#{$url-cl}ico_mark_off.svg) no-repeat;
 	}
 
 	.tb-wrap{
@@ -219,6 +220,10 @@ $bg-color2:		#7764CA !default;
 					border:0;
 					background-color: transparent;
 				}
+				.ico{
+					margin:0;
+					vertical-align: middle;
+				}
 			}
 			tr:not(:first-child){
 				td{
@@ -231,6 +236,7 @@ $bg-color2:		#7764CA !default;
 				&:nth-child(1)
 				{
 					text-align: center;
+					vertical-align: middle;
 				}
 			}
 		}
