@@ -1,0 +1,49 @@
+<header id="header">
+	<div class="head-cont">
+		<div class="head-wrap">
+			<div class="head-top">
+				<h1 class="title01">
+					<span class="ico"></span>통합프로젝트명
+				</h1>
+				<div class="components">
+					<a href="@@webRoot/components/form.html" target="_blank" class="c-btns">FROM</a>
+					<a href="#" class="c-btns">BUTTON</a>
+					<a href="#" class="c-btns">TEXT</a>
+					<a href="#" class="c-btns">ICON</a>
+				</div>
+			</div>
+
+			@@if (components === true){
+			<div class="head-cate">
+				<div class="ui-cl-tab depth">
+					<div class="item">
+						<a href="#" class="gnb active">자동차</a>
+					</div>
+					<div class="item">
+						<a href="#" class="gnb">장기</a>
+					</div>
+					<div class="item">
+						<a href="#" class="gnb">일반</a>
+					</div>
+				</div>
+
+				<div class="cl-progress">
+					<div class="total-wrap">
+						<span class="txt">Total :</span>
+						<span class="current">0</span>
+						<span class="bullet">/</span>
+						<span class="total-count"></span>
+					</div>
+					<div class="progress">
+						<span class="txt">진척률 : </span>
+						<span class="percent"> 10%</span>
+						<div class="gauge">
+							<em></em>
+						</div>
+					</div>
+				</div>
+			</div>
+			}
+		</div>
+	</div>
+</header>

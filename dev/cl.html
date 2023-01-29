@@ -2,59 +2,14 @@
 <html lang="ko">
 <head>
 @@include('@@webRoot/include/head.html')
-<script src="@@webRoot/js/datepicker-full.min.js"></script>
 <link rel="stylesheet" href="@@webRoot/css/cl.css">
-<link rel="stylesheet" href="@@webRoot/css/datepicker.min.css">
 </head>
 <body>
 	<div id="wrap">
 		<!-- header -->
-		<header id="header">
-			<div class="head-cont">
-				<div class="head-wrap">
-					<div class="head-top">
-						<h1 class="title01">
-							<span class="ico"></span>통합프로젝트명
-						</h1>
-						<div class="components">
-							<a href="#" class="c-btns">FROM</a>
-							<a href="#" class="c-btns">BUTTON</a>
-							<a href="#" class="c-btns">TEXT</a>
-							<a href="#" class="c-btns">ICON</a>
-						</div>
-					</div>
-					<div class="head-cate">
-						<div class="depth">
-							<div class="item">
-								<a href="#" class="gnb active">자동차</a>
-							</div>
-							<div class="item">
-								<a href="#" class="gnb">장기</a>
-							</div>
-							<div class="item">
-								<a href="#" class="gnb">일반</a>
-							</div>
-						</div>
-
-						<div class="cl-progress">
-							<div class="total-wrap">
-								<span class="txt">Total :</span>
-								<span class="current">0</span>
-								<span class="bullet">/</span>
-								<span class="total-count"></span>
-							</div>
-							<div class="progress">
-								<span class="txt">진척률 : </span>
-								<span class="percent"> 10%</span>
-								<div class="gauge">
-									<em></em>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+		@@include('@@webRoot/include/cl_header.html',{
+			components: false
+		})
 		<!-- //header -->
 		
 		<!-- container -->
@@ -73,6 +28,190 @@
 							작업중
 						</span> 
 					</div>
+				</div>
+
+				<div class="tb-wrap first">
+					<table>
+						<caption></caption>
+						<colgroup>
+							<col style="width:80px">
+							<col span="5">
+							<col style="width:80px">
+							<col>
+							<col style="width:70px">
+							<col>
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>상태</th>
+								<th>1depth</th>
+								<th>2depth</th>
+								<th>3depth</th>
+								<th>4depth</th>
+								<th>5depth</th>
+								<th>Folder</th>
+								<th>Filename</th>
+								<th>작업자</th>
+								<th>종료일</th>
+								<th>Issue</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>완료</td>
+								<td>자동차</td>
+								<td>상품특징상품특징상품특징상품특징 상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>작업중</td>
+								<td>자동차</td>
+								<td>상품특징상품특징상품특징상품특징 상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>작업중</td>
+								<td>자동차</td>
+								<td>상품특징상품특징상품특징상품특징 상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>작업중</td>
+								<td>자동차</td>
+								<td>상품특징상품특징상품특징상품특징 상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>작업중</td>
+								<td>자동차</td>
+								<td>상품특징상품특징상품특징상품특징 상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>작업중</td>
+								<td>자동차</td>
+								<td>상품특징상품특징상품특징상품특징 상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>완료</td>
+								<td>자동차</td>
+								<td>상품특징</td>
+								<td>보험료</td>
+								<td>븍랙박스</td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="tb-wrap">
+					<table>
+						<caption></caption>
+						<colgroup>
+							<col style="width:80px">
+							<col span="5">
+							<col style="width:80px">
+							<col>
+							<col style="width:70px">
+							<col>
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>상태</th>
+								<th>1depth</th>
+								<th>2depth</th>
+								<th>3depth</th>
+								<th>4depth</th>
+								<th>5depth</th>
+								<th>Folder</th>
+								<th>Filename</th>
+								<th>작업자</th>
+								<th>종료일</th>
+								<th>Issue</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>완료</td>
+								<td>장기</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>/Fonts</td>
+								<td>
+									<a href=".html">.html</a>
+								</td>
+								<td>이민우</td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 
 				<div class="tb-wrap">
@@ -105,107 +244,17 @@
 						<tbody>
 							<tr>
 								<td>작업중</td>
-								<td>자동차</td>
-								<td>상품특징상품특징상품특징상품특징 상품특징</td>
-								<td>보험료</td>
-								<td>븍랙박스</td>
+								<td>일반</td>
+								<td></td>
+								<td></td>
+								<td></td>
 								<td></td>
 								<td>/Fonts</td>
 								<td>
 									<a href=".html">.html</a>
 								</td>
 								<td>이민우</td>
-								<td><input type="text" name="calendar"></td>
 								<td></td>
-							</tr>
-							<tr>
-								<td>작업중</td>
-								<td>자동차</td>
-								<td>상품특징상품특징상품특징상품특징 상품특징</td>
-								<td>보험료</td>
-								<td>븍랙박스</td>
-								<td></td>
-								<td>/Fonts</td>
-								<td>
-									<a href=".html">.html</a>
-								</td>
-								<td>이민우</td>
-								<td><input type="text" name="calendar"></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>작업중</td>
-								<td>자동차</td>
-								<td>상품특징상품특징상품특징상품특징 상품특징</td>
-								<td>보험료</td>
-								<td>븍랙박스</td>
-								<td></td>
-								<td>/Fonts</td>
-								<td>
-									<a href=".html">.html</a>
-								</td>
-								<td>이민우</td>
-								<td><input type="text" name="calendar"></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>작업중</td>
-								<td>자동차</td>
-								<td>상품특징상품특징상품특징상품특징 상품특징</td>
-								<td>보험료</td>
-								<td>븍랙박스</td>
-								<td></td>
-								<td>/Fonts</td>
-								<td>
-									<a href=".html">.html</a>
-								</td>
-								<td>이민우</td>
-								<td><input type="text" name="calendar"></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>작업중</td>
-								<td>자동차</td>
-								<td>상품특징상품특징상품특징상품특징 상품특징</td>
-								<td>보험료</td>
-								<td>븍랙박스</td>
-								<td></td>
-								<td>/Fonts</td>
-								<td>
-									<a href=".html">.html</a>
-								</td>
-								<td>이민우</td>
-								<td><input type="text" name="calendar"></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>작업중</td>
-								<td>자동차</td>
-								<td>상품특징상품특징상품특징상품특징 상품특징</td>
-								<td>보험료</td>
-								<td>븍랙박스</td>
-								<td></td>
-								<td>/Fonts</td>
-								<td>
-									<a href=".html">.html</a>
-								</td>
-								<td>이민우</td>
-								<td><input type="text" name="calendar"></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>완료</td>
-								<td>자동차</td>
-								<td>상품특징</td>
-								<td>보험료</td>
-								<td>븍랙박스</td>
-								<td></td>
-								<td>/Fonts</td>
-								<td>
-									<a href=".html">.html</a>
-								</td>
-								<td>이민우</td>
-								<td><input type="text" name="calendar"></td>
 								<td></td>
 							</tr>
 						</tbody>
@@ -221,21 +270,13 @@
 		<!-- //footer -->
 	</div>
 	<script>
-		// const elem = document.querySelectorAll('input[name="calendar"]');
-		
-		// elem.forEach(function(obj,idx){
-		// 	console.log(obj,idx);
-		// 	const datepicker = new Datepicker(obj, {
-		// 		autohide: true,
-		// 		format: 'yy-mm-dd',
-		// 	});
-		// })
 		const progressRate = () => {
-			const listItem = document.querySelector('.tb-wrap').querySelectorAll('tbody tr td:first-child');
+			const listItem = document.querySelectorAll('tbody tr td:first-child');
 			const itemLgt = listItem.length;
 
 			let workValue = [];
 			let workTotal;
+
 			[].forEach.call(listItem, (obj,idx) => {
 				workValue[idx] = obj.textContent;
 				workTotal = workValue.filter(value => value === '완료').length;
@@ -255,7 +296,41 @@
 			document.querySelector('.gauge em').style.width =  Math.round(workTotal / itemLgt * 100) + '%';
 
 		}
+
+		const uiClTab = () => {
+			const tabEl = document.querySelector('.ui-cl-tab');
+			const btnEl = tabEl.querySelectorAll('.item a');
+			const layerEl = document.querySelectorAll(".tb-wrap");
+
+			const btnLength = btnEl.length;
+			let idx;
+			let titleTxt;
+
+			[].forEach.call(btnEl, (e) => {
+				e.addEventListener("click", (event) => {
+					event.preventDefault();
+					idx = getElIndex(btnEl, e);
+					titleTxt = e.innerText;
+
+					document.querySelector('.title-area .title02').innerHTML = titleTxt;
+
+					for (i = 0; i < btnLength; i++) {
+						layerEl[i].style.height = "0";
+						layerEl[i].style.opacity = "0";
+						btnEl[i].classList.remove('active');
+					}
+
+					layerEl[idx].style.height = "auto";
+					e.classList.add('active');
+					setTimeout(function() {
+						layerEl[idx].style.opacity = 1;
+					});
+				});
+			});
+		}
+
 		progressRate();
+		uiClTab();
 	</script>
 </body>
 </html>

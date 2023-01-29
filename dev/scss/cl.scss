@@ -144,6 +144,7 @@ $bg-color2:		#7764CA !default;
 	.title-area{
 		display:flex;
 		justify-content: space-between;
+		margin-bottom:18px;
 		.title02{
 
 		}
@@ -178,7 +179,13 @@ $bg-color2:		#7764CA !default;
 	}
 
 	.tb-wrap{
-		margin-top:18px;
+		height:auto;
+		opacity:0;
+		&.first{
+			height:0;
+			opacity: 1;
+			transition:opacity .3s ease-in-out;
+		}
 		table{
 			width:100%;
 			table-layout: fixed;
